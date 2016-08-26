@@ -30,23 +30,39 @@ LCD 与 树莓派相连 方案图，2K电阻是我自行设计，如果有电位
 
 树莓派的USB端口朝下，电源线位置朝上方向摆放。
 右端一共有40个引脚，每个引脚的PIN位置如上。
-
+```
 VSS，接地，RPi PIN 6
+
 VDD，接5V电源，PRi PIN 2
+
 VO，液晶对比度调节，接1K 电阻，另一端相连接地，PIN 9
+
 RS，寄存器选择，接GPIO 14，RPi PIN 8
+
 RW，读写选择，接地，表示写模式，PRi PIN 6
+
 E，使能信号，接GPIO 15，RPi PIN 10
+
 D0，数据位0，4位工作模式下不用，不接
+
 D1，数据位1，4位工作模式下不用，不接
+
 D2，数据位2，4位工作模式下不用，不接
+
 D3，数据位3，4位工作模式下不用，不接
+
 D4，数据位4，接GPIO 17，RPi PIN 11
+
 D5，数据位5，接GPIO 18，RPi PIN 12
+
 D6，数据位6，接GPIO 27，RPi PIN 13
+
 D7，数据位7，接GPIO 22，RPi PIN 15
+
 A，液晶屏背光+，接5V，RPi PIN 4
+
 K，液晶屏背光-，接地，RPi PIN 39
+```
 
 **连接好后，务必要仔细检查是否连接正确，以防开机烧坏GPIO甚至树莓派。**
 
@@ -61,12 +77,15 @@ K，液晶屏背光-，接地，RPi PIN 39
 
 ##DHT11 接线方案
 接线简单，主要是把数据传输到GPIO26上
+```
+DHT11有3个脚,VCC,DATA,GND
 
-DHT11有3个脚，VCC，DATA，GND
-VCC 接 3.3V PIN 01
-DATA 接 GPIO26 PIN 37
-GND 接地  PIN 09
+VCC,接 3.3V,PIN 01
 
+DATA,接 GPIO26,PIN 37
+
+GND,接地,PIN 09
+```
 #依赖
 * Adafruit_DHT
 * Adafruit_CharLCD
