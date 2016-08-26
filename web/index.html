@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- 引入 ECharts 文件 -->
+    <script src="asset/js/echarts.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 800px;height:500px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+ 		$.getJSON('data/json.json', function (rawData) {
+ 		var timedata = [];
+ 		var tmpdata = [];
+ 		var hmtdata = [];
+ 		$.each(rawData, function(i, item){
+		timedata.push(item['time']);
+		tmpdata.push(item['tmp']);
+		hmtdata.push(item['hmt']);	
+		}) 
+		console.log(timedata);
+        var myChart = echarts.init(document.getElementById('main'));
+
+    option = {
+    title: {
+        text: '树莓派实时气温湿度检测',
+        subtext: 'ALL BY IVAN'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['温度','湿度']
+    },
+    toolbox: {
+        show: true,
+        feature: {
+            dataZoom: {
+                yAxisIndex: 'none'
+            },
+            dataView: {readOnly: false},
+            magicType: {type: ['line', 'bar']},
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    xAxis:  {
+        type: 'category',
+        boundaryGap: false,
+        data: timedata
+    },
+    yAxis: {
+        type: 'value',
+        axisLabel: {
+            formatter: '{value} °C'
+        }
+    },
+    series: [
+        {
+            name:'温度',
+            type:'line',
+            data:tmpdata,
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+        },
+        {
+            name:'湿度',
+            type:'line',
+            data:hmtdata,
+            markPoint: {
+                data: [
+                    {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
+                ]
+            }
+        }
+    ]
+};
+
+		// 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+		});
+
+        
+    </script>
+</body>
+</html>
