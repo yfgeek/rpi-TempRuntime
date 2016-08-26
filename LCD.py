@@ -32,9 +32,9 @@ while True:
     sensor = Adafruit_DHT.DHT11
     humidity, temperature = Adafruit_DHT.read_retry(sensor, 26)
     if humidity is not None and temperature is not None:
-        msg = 'Temp={0:0.1f}* \nHumidity={1:0.1f}%'.format(temperature, humidity)
+        msg =  str(temperature) + ' C  ' + str(humidity) + '%\n' + time.strftime('%H:%M',time.localtime(time.time())) +'\n'
         i = {"time":time.strftime('%H:%M',time.localtime(time.time())),"tmp":temperature,"hmt":humidity}
         jsonWrite(i)
         lcd.message(msg)
         print(msg)
-    time.sleep(600)
+    time.sleep(60)

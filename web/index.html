@@ -2,15 +2,16 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 引入 ECharts 文件 -->
     <script src="asset/js/echarts.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
 </head>
 <body>
-    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-    <div id="main" style="width: 800px;height:500px;"></div>
-    <script type="text/javascript">
-        // 基于准备好的dom，初始化echarts实例
+    <div id="main" style="width:auto;min-width:600px;height:500px;"></div>
+
+<script type="text/javascript">
  		$.getJSON('data/json.json', function (rawData) {
  		var timedata = [];
  		var tmpdata = [];
@@ -25,7 +26,7 @@
 
     option = {
     title: {
-        text: '树莓派实时气温湿度检测',
+        text: '树莓派实时气温湿度监测',
         subtext: 'ALL BY IVAN'
     },
     tooltip: {
@@ -72,17 +73,10 @@
         {
             name:'湿度',
             type:'line',
-            data:hmtdata,
-            markPoint: {
-                data: [
-                    {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
-                ]
-            }
+            data:hmtdata
         }
     ]
 };
-
-		// 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
 		});
 
