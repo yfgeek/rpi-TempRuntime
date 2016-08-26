@@ -114,5 +114,8 @@ git clone  https://github.com/yfgeek/rpi-TempRuntime.git
 cd /var/www/html/rpi-TempRuntime
 python LCD.py
 ```
-#截图
+#结果
+
 ![](http://blog.yfgeek.com/content/images/2016/08/WechatIMG10.jpeg)
+
+![](http://blog.yfgeek.com/content/images/2016/08/WechatIMG302.jpeg)
