@@ -1,8 +1,6 @@
 #介绍
 这是一个树莓派实时监测的项目，可在web上显示实时的温度及湿度变化情况。
 
-![](http://blog.yfgeek.com/content/images/2016/08/WechatIMG10.jpeg)
-
 #依赖
 * Adafruit_DHT
 * Adafruit_CharLCD
@@ -30,3 +28,5 @@ git clone  https://github.com/yfgeek/rpi-TempRuntime.git
 cd /var/www/html/rpi-TempRuntime
 python LCD.py
 ```
+#截图
+![](http://blog.yfgeek.com/content/images/2016/08/WechatIMG10.jpeg)
