@@ -5,12 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 引入 ECharts 文件 -->
+    <link rel="stylesheet" type="text/css" href="asset/css/calendar.css">
     <script src="asset/js/echarts.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
+
 </head>
 <body>
+                <div id="dateset">
+                        <label for="singleDateRange">日期</label>
+                        <input type="text" placeholder="Date picker" id="singleDateRange">
+                        <input type="button" id="submitit" value="GO">
+                </div>  
     <div id="main" style="width:auto;min-width:600px;height:500px;"></div>
 
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/locale/zh-cn.js"></script>
+    <script src="asset/js/es6.js"></script>
 <script type="text/javascript">
 function showLocale(objD)
 {
@@ -24,19 +34,16 @@ function showLocale(objD)
     str = yy + "-" + MM + "-" + dd;
     return(str);
 }
-
-        var todaytime = new Date();
-        var pathfile = 'data/' + showLocale(todaytime) + '.json';
- 		$.getJSON(pathfile, function (rawData) {
- 		var timedata = [];
- 		var tmpdata = [];
- 		var hmtdata = [];
- 		$.each(rawData, function(i, item){
-		timedata.push(item['time']);
-		tmpdata.push(item['tmp']);
-		hmtdata.push(item['hmt']);	
-		}) 
-		console.log(timedata);
+function createchart(pathfile){
+        $.getJSON(pathfile, function (rawData) {
+        var timedata = [];
+        var tmpdata = [];
+        var hmtdata = [];
+        $.each(rawData, function(i, item){
+        timedata.push(item['time']);
+        tmpdata.push(item['tmp']);
+        hmtdata.push(item['hmt']);  
+        }) 
         var myChart = echarts.init(document.getElementById('main'));
 
     option = {
@@ -93,9 +100,29 @@ function showLocale(objD)
     ]
 };
         myChart.setOption(option);
-		});
+        });
+}
+        var todaytime = new Date();
+        var pathfile = 'data/' + showLocale(todaytime) + '.json';
+        createchart(pathfile);
 
         
+    </script>
+        <script>
+        'use strict';
+
+        $(function () {
+            'use strict';
+
+            $('#singleDateRange').DatePicker({
+                startDate: moment()
+            });
+            $('#submitit').click(function(){
+                 var selectdate = $('#singleDateRange').val();
+                 var pathfile = 'data/' + selectdate + '.json';
+                createchart(pathfile);
+            });
+        });
     </script>
 </body>
 </html>

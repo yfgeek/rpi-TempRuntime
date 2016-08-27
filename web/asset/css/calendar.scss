@@ -1,0 +1,284 @@
+$green: #27ae60;
+$blue: #3498db;
+$cloud: #ecf0f1;
+
+.dt {
+	position: absolute;
+	background-color: #fff;
+	top: 50px;
+	left: 0;
+	z-index: 100;
+	transition: all 0.3s ease;
+	opacity: 0.5;
+	max-height: 0px;
+	max-width: 0px;
+	overflow: hidden;
+	border-radius: 50%;
+	box-shadow: 1px 2px 8px rgba(0,0,0,0.15);
+	&.show { 
+		overflow: inherit;
+		max-width: 600px;
+		max-height: 520px;
+		opacity:1;
+		display: block;
+		border-radius: 0;
+	}
+	&__head {
+		background: $green;
+		color: #fff;
+		padding: 0 10px;
+		&_year {
+			color: $green/2;
+			display: block;
+			font-size: 12px;
+			line-height: 20px;
+		}
+		.next, .prev {
+			display: inline-block;
+			color: #fff;
+		}
+	}
+	&__footer {
+		&_close {
+			box-sizing: border-box;
+		    cursor: pointer;
+		    font-family: 'Roboto', 'Arial', sans-serif;
+		    font-weight: 300;
+		    display: inline-block;
+		    color: #000;
+		    background: $cloud;
+		    letter-spacing: .5px;
+		    font-size: 15px;
+		    border-radius: 3px;
+		    line-height: 36px;
+		    height: 36px;
+		    padding: 0 10px;
+		    text-decoration: none !important;
+		    outline: 0;
+		    border: 0;
+			-webkit-tap-highlight-color: transparent;
+			vertical-align: middle;
+			text-transform: uppercase;
+			box-shadow: 2px 3px 5px rgba(0,0,0,0.15);
+		    transition: all 0.3s ease;
+		    &:focus {
+		        outline: none;
+		    }
+		    &:hover {
+		       background: $cloud*1.05;
+		    }
+		    &:active {
+		        box-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+		    }
+		}
+	}
+	&__nav {
+		text-align: center;
+		&_prev, &_next {
+			&_start, &_end {
+				display: inline-block;
+				width: 40px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				border-radius: 50%;
+				font-size: 18px;
+				transition: all 0.3s ease;
+				margin: 0 15px;
+				cursor: pointer;
+				&:hover {
+					background: rgba(0,0,0,0.15);
+				}
+			}
+		}
+		&_prev {
+			margin-right: 20px;
+		}
+		&_next {
+			margin-left: 20px;
+		}
+		&_title {
+			display: inline-block;
+		}
+	}
+	&__wrapper {
+		&.rangedate {
+			min-width: 571px;
+			.dt__calendar:first-child {
+				.dt__calendar_start {
+					border-right: 1px solid #eee;
+				    margin-right: 5px;
+				    padding-right: 5px;
+				}
+			}
+		}
+	}
+
+	&__rages {
+		display: block;
+		text-align: center;
+		background-color: $cloud;
+		&_item {
+			display: inline-block;
+			font-size: 12px;
+			color: $blue;
+			cursor: pointer;
+			line-height: 30px;
+			padding: 0 5px;
+			&:hover {
+				color: $green;
+			}
+		}
+	}
+	&__calendar {
+		font-size: 0px;
+		display: inline-block;
+		vertical-align: top;
+		&_nav {
+			background-color: $cloud;
+			font-size: 18px;
+			text-align: center;
+			padding: 5px 0;
+			&_prev, &_next {
+			&_start, &_end {
+				display: inline-block;
+				width: 40px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				border-radius: 50%;
+				font-size: 18px;
+				transition: all 0.3s ease;
+				margin: 0 15px;
+				cursor: pointer;
+					&:hover {
+						background: rgba(0,0,0,0.15);
+					}
+				}
+			}
+			&_title {
+				font-size: 18px;
+				font-weight: 200;
+				display: inline-block;
+			}
+		}
+		&_head {
+			font-size: 14px;
+			background-color: $blue;
+			text-align: center;
+			padding-bottom: 10px;
+			&_wday {
+				line-height: 25px;
+				color: #fff;
+				display: block;
+				width: 100%;
+				font-size: 12px;
+				background: rgba(0,0,0,0.2);
+				text-transform: uppercase;
+				font-weight: 300;
+			}
+			&_month {
+				color: #fff;
+				font-size: 18px;
+				display: block;
+				height: 30px;
+				font-weight: 300;
+				opacity: 0.8;
+				line-height: 30px;
+			}
+			&_day {
+				color: #fff;
+				font-size: 34px;
+				display: block;
+				height: 50px;
+				line-height: 48px;
+			}
+			&_year {
+				color: #fff;
+				font-size: 14px;
+				display: block;
+				height: 20px;
+				line-height: 20px;
+			}
+			.next, .prev {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				margin: 0 10px;
+				color: #fff;
+				border-radius: 50%;
+				vertical-align: middle;
+				font-size: 14px;
+				line-height: 20px;
+				background: transparent;
+				font-weight: 300;
+				opacity: 0.7;
+				cursor: pointer;
+				transition: all 0.3 ease;
+				&:hover {
+					background: rgba(0,0,0,0.2);
+					opacity: 1;
+				}
+			}
+		}
+		//Month
+		&_m {
+			transition: all 0.3s ease;
+			font-size: 0px;
+			width: 280px;
+			//week
+			&_w {
+				width: 280px;
+				font-size: 0;
+				&_n {
+					width: 40px;
+					height: 40px;
+					line-height: 40px;
+					font-size: 14px;
+					text-align: center;
+					color: #888;
+					display: inline-block;
+					border-radius: 50%;
+				}
+			}
+			//Day
+			&_d {
+				transition: all 0.3s ease;
+				border-radius: 50%;
+				position: relative;
+				vertical-align: top;
+				display: inline-block;
+				line-height: 34px;
+				margin: 3px;
+				width: 34px;
+				text-align: center;
+				height: 34px;
+				font-size: 14px;
+				cursor: pointer;
+				font-weight: 300;
+				&:hover {
+					background-color: $cloud;
+				}
+				&_e {
+					border-radius: 50%;
+					display: inline-block;
+					line-height: 40px;
+					width: 40px;
+					text-align: center;
+					height: 40px;
+					font-size: 16px;
+					cursor: pointer;
+				}
+				&.active {
+					background-color: $green;
+					color: #fff;
+				}
+				&.between {
+					border: 1px solid $green;
+					box-sizing: border-box;
+					position: relative;
+				}
+			}
+		}
+	}
+}
