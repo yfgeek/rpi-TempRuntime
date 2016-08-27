@@ -12,7 +12,22 @@
     <div id="main" style="width:auto;min-width:600px;height:500px;"></div>
 
 <script type="text/javascript">
- 		$.getJSON('data/json.json', function (rawData) {
+function showLocale(objD)
+{
+    var str,colorhead,colorfoot;
+    var yy = objD.getYear();
+    if(yy<1900) yy = yy+1900;
+    var MM = objD.getMonth()+1;
+    if(MM<10) MM = '0' + MM;
+    var dd = objD.getDate();
+    if(dd<10) dd = '0' + dd;
+    str = yy + "-" + MM + "-" + dd;
+    return(str);
+}
+
+        var todaytime = new Date();
+        var pathfile = 'data/' + showLocale(todaytime) + '.json';
+ 		$.getJSON(pathfile, function (rawData) {
  		var timedata = [];
  		var tmpdata = [];
  		var hmtdata = [];

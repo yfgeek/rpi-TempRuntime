@@ -4,14 +4,23 @@ import Adafruit_DHT
 import Adafruit_CharLCD as LCD
 import time
 import json,os
-def jsonWrite(data):
-     file =open("web/data/json.json","rb+")
-     file.seek(-1,os.SEEK_END)
-     file.truncate()
-     file.write(",")
-     json.dump(data,file)
-     file.write("]") 
-     file.close()
+
+def jsonWrite(data,tdate):
+    pathfile = "web/data/" + tdate +".json"
+    if os.path.exists(pathfile):
+      file =open(pathfile,"rb+")
+      file.seek(-1,os.SEEK_END)
+      file.truncate()
+      file.write(",")
+      json.dump(data,file)
+      file.write("]") 
+      file.close()
+    else:
+      file =open(pathfile,"w")
+      file.write("[")
+      json.dump(data,file)
+      file.write("]") 
+      file.close()
 
 # Raspberry Pi pin configuration:
 lcd_rs        = 14  # Note this might need to be changed to 21 for older revision Pi's.
@@ -32,9 +41,11 @@ while True:
     sensor = Adafruit_DHT.DHT11
     humidity, temperature = Adafruit_DHT.read_retry(sensor, 26)
     if humidity is not None and temperature is not None:
-        msg =  str(temperature) + ' C  ' + str(humidity) + '%\n' + time.strftime('%H:%M',time.localtime(time.time())) +'\n'
+        lcd.clear()
+        todaytime = time.strftime('%Y-%m-%d',time.localtime(time.time()))
+        msg =  time.strftime('%Y-%m-%d %H:%M',time.localtime(time.time())) + '\n' + str(temperature) + ' C  ' + str(humidity) + '%'
         i = {"time":time.strftime('%H:%M',time.localtime(time.time())),"tmp":temperature,"hmt":humidity}
-        jsonWrite(i)
+        jsonWrite(i,todaytime)
         lcd.message(msg)
         print(msg)
     time.sleep(60)
