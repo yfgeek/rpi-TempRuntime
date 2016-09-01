@@ -73,6 +73,7 @@ K，液晶屏背光-，接地，RPi PIN 39
 
 * 肯定没有爆炸
 * 会出现如下图的效果，证明你已经接线成功了
+
 ![](http://blog.yfgeek.com/content/images/2016/08/1.jpg)
 
 ##DHT11 接线方案
@@ -86,6 +87,24 @@ DATA,接 GPIO26,PIN 37
 
 GND,接地,PIN 09
 ```
+
+##DHT22 接线方案
+接线需要并联一个10K电阻
+```
+DHT22有3个脚,VCC,DATA,GND
+
+VCC,接 3.3V,PIN 01
+
+DATA,接 GPIO26,PIN 37
+
+GND,接地,PIN 09
+
+其中DATA和VCC之间用10k电阻相连
+
+![](http://codemany.com/uploads/rpi-dht22.png)
+
+```
+
 #依赖
 * Adafruit_DHT
 * Adafruit_CharLCD

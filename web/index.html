@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 引入 ECharts 文件 -->
+    <title>温湿度监测系统</title>
     <link rel="stylesheet" type="text/css" href="asset/css/calendar.css">
     <script src="asset/js/echarts.min.js"></script>
+    
 
 </head>
 <body>
@@ -95,7 +97,13 @@ function createchart(pathfile){
         {
             name:'湿度',
             type:'line',
-            data:hmtdata
+            data:hmtdata,
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
         }
     ]
 };
@@ -113,7 +121,6 @@ function createchart(pathfile){
 
         $(function () {
             'use strict';
-
             $('#singleDateRange').DatePicker({
                 startDate: moment()
             });
