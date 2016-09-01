@@ -101,9 +101,8 @@ GND,接地,PIN 09
 
 其中DATA和VCC之间用10k电阻相连
 
-![](http://codemany.com/uploads/rpi-dht22.png)
-
 ```
+![](http://codemany.com/uploads/rpi-dht22.png)
 
 #依赖
 * Adafruit_DHT
