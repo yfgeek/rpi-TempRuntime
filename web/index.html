@@ -4,132 +4,36 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 引入 ECharts 文件 -->
     <title>温湿度监测系统</title>
     <link rel="stylesheet" type="text/css" href="asset/css/calendar.css">
-    <script src="asset/js/echarts.min.js"></script>
-    
-
+	<link rel="stylesheet" type="text/css" href="asset/css/main.css">
+    <link rel="stylesheet" type="text/css" href="asset/semantic.min.css">
+<script src="asset/semantic.min.js"></script>
+<script src="asset/js/echarts.min.js"></script>
 </head>
 <body>
-                <div id="dateset">
-                        <label for="singleDateRange">日期</label>
-                        <input type="text" placeholder="Date picker" id="singleDateRange">
-                        <input type="button" id="submitit" value="GO">
-                </div>  
-    <div id="main" style="width:auto;min-width:600px;height:500px;"></div>
-
+<div class="ui container">
+<div class="ui secondary menu" id="topmenu">
+  <div class="header item">树莓派湿度温度检测系统</div>
+  <div class="active item">主页</div>
+  <a class="item">设置</a>
+  <div class="right menu">
+    <div class="item">
+<div class="ui action left icon input">
+      <i class="calendar icon"></i>
+      <input type="text" placeholder="点击选择日期" id="singleDateRange">
+      <div class="ui blue button" id="submitit" >分钟</div>
+      <div class="ui violet button" id="changeit" >小时</div>
+</div>
+  </div>
+</div>
+</div>
+    <div id="main" style="width:auto;height:500px;min-width:600px"></div>
+ </div>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/locale/zh-cn.js"></script>
     <script src="asset/js/es6.js"></script>
-<script type="text/javascript">
-function showLocale(objD)
-{
-    var str,colorhead,colorfoot;
-    var yy = objD.getYear();
-    if(yy<1900) yy = yy+1900;
-    var MM = objD.getMonth()+1;
-    if(MM<10) MM = '0' + MM;
-    var dd = objD.getDate();
-    if(dd<10) dd = '0' + dd;
-    str = yy + "-" + MM + "-" + dd;
-    return(str);
-}
-function createchart(pathfile){
-        $.getJSON(pathfile, function (rawData) {
-        var timedata = [];
-        var tmpdata = [];
-        var hmtdata = [];
-        $.each(rawData, function(i, item){
-        timedata.push(item['time']);
-        tmpdata.push(item['tmp']);
-        hmtdata.push(item['hmt']);  
-        }) 
-        var myChart = echarts.init(document.getElementById('main'));
-
-    option = {
-    title: {
-        text: '树莓派实时气温湿度监测',
-        subtext: 'ALL BY IVAN'
-    },
-    tooltip: {
-        trigger: 'axis'
-    },
-    legend: {
-        data:['温度','湿度']
-    },
-    toolbox: {
-        show: true,
-        feature: {
-            dataZoom: {
-                yAxisIndex: 'none'
-            },
-            dataView: {readOnly: false},
-            magicType: {type: ['line', 'bar']},
-            restore: {},
-            saveAsImage: {}
-        }
-    },
-    xAxis:  {
-        type: 'category',
-        boundaryGap: false,
-        data: timedata
-    },
-    yAxis: {
-        type: 'value',
-        axisLabel: {
-            formatter: '{value} °C'
-        }
-    },
-    series: [
-        {
-            name:'温度',
-            type:'line',
-            data:tmpdata,
-            markPoint: {
-                data: [
-                    {type: 'max', name: '最大值'},
-                    {type: 'min', name: '最小值'}
-                ]
-            },
-        },
-        {
-            name:'湿度',
-            type:'line',
-            data:hmtdata,
-            markPoint: {
-                data: [
-                    {type: 'max', name: '最大值'},
-                    {type: 'min', name: '最小值'}
-                ]
-            },
-        }
-    ]
-};
-        myChart.setOption(option);
-        });
-}
-        var todaytime = new Date();
-        var pathfile = 'data/' + showLocale(todaytime) + '.json';
-        createchart(pathfile);
-
-        
-    </script>
-        <script>
-        'use strict';
-
-        $(function () {
-            'use strict';
-            $('#singleDateRange').DatePicker({
-                startDate: moment()
-            });
-            $('#submitit').click(function(){
-                 var selectdate = $('#singleDateRange').val();
-                 var pathfile = 'data/' + selectdate + '.json';
-                createchart(pathfile);
-            });
-        });
-    </script>
+    <script src="asset/js/chart.js"></script>
 </body>
 </html>
