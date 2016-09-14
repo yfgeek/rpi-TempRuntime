@@ -1,17 +1,4 @@
 $(function () {
-             $('#singleDateRange').DatePicker({
-                startDate: moment()
-            });
-            $('#submitit').click(function(){
-                 var selectdate = $('#singleDateRange').val();
-                 var pathfile = 'data/' + selectdate + '.json';
-                createchart(pathfile,1);
-            });
-            $('#changeit').click(function(){
-                 var selectdate = $('#singleDateRange').val();
-                 var pathfile = 'data/' + selectdate + '.json';
-                createchart(pathfile,60);
-            });
 function showLocale(objD)
 {
     var str,colorhead,colorfoot;
@@ -106,5 +93,17 @@ function createchart(pathfile,dataindex){
         var todaytime = new Date();
         var pathfile = 'data/' + showLocale(todaytime) + '.json';
         createchart(pathfile,1);
-
+             $('#singleDateRange').DatePicker({
+                startDate: moment()
+            });
+            $('#submitit').click(function(){
+                 var selectdate = $('#singleDateRange').val();
+                 var pathfile = 'data/' + selectdate + '.json';
+                createchart(pathfile,1);
+            });
+            $('#changeit').click(function(){
+                 var selectdate = $('#singleDateRange').val();
+                 var pathfile = 'data/' + selectdate + '.json';
+                createchart(pathfile,60);
+            });
        });  
