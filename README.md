@@ -1,6 +1,7 @@
 #介绍
 这是一个树莓派实时监测的项目，需要参考上文，可在web上显示实时的温度及湿度变化情况。
 
+![](http://blog.yfgeek.com/content/images/github/1version.jpg)
 
 #原料
 * 树莓派3B
