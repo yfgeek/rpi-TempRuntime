@@ -136,4 +136,4 @@ python LCD.py
 
 ![](http://blog.yfgeek.com/content/images/github/1version.jpg)
 
-![](http://blog.yfgeek.com/content/images/2016/08/WechatIMG302.jpeg)
+![](http://blog.yfgeek.com/content/images/github/lcd.jpg)
