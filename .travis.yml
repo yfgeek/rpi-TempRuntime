@@ -1,0 +1,11 @@
+language: python
+python:
+ - "2.7"
+install:
+ git clone https://github.com/adafruit/Adafruit_Python_DHT.git
+ cd Adafruit_Python_DHT
+ sudo python setup.py install
+ sudo pip install RPi.GPIO
+ git clone https://github.com/adafruit/Adafruit_Python_CharLCD
+ cd Adafruit_Python_CharLCD
+ sudo python setup.py install
