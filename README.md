@@ -7,15 +7,15 @@ http://pi.yfgeek.com:808/web
 
 # 架构
 
-前端：Semantic UI + eCharts + JQuery JQuery
+前端：Semantic UI + eCharts + JQuery Datapicker
 
 后端：Python + Apache
 
-✅支持断点续传
+- [x] 支持断点续传
 
-✅json文件输出
+- [x] json文件输出
 
-✅后端轻量、稳定
+- [x] 后端轻量、稳定
 
 # 原料
 * 树莓派3B
