@@ -1,0 +1,19 @@
+{
+  "name": "rpi-runtime",
+  "version": "1.2.0",
+  "description": "树莓派温度湿度监控系统",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^2.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yfgeek",
+  "license": "Apache-2.0"
+}
