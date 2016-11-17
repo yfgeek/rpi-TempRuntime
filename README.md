@@ -1,9 +1,21 @@
 # 介绍
 这是一个树莓派实时监测的项目，需要参考上文，可在web上显示实时的温度及湿度变化情况。
 
-![](http://blog.yfgeek.com/content/images/github/1version.jpg)
+![](images/1.jpg)
 # Demo
 http://pi.yfgeek.com:808/web
+
+# 架构
+
+前端：Semantic UI + eCharts + JQuery JQuery
+
+后端：Python + Apache
+
+✅支持断点续传
+
+✅json文件输出
+
+✅后端轻量、稳定
 
 # 原料
 * 树莓派3B
@@ -22,14 +34,14 @@ http://pi.yfgeek.com:808/web
 
 树莓派3B的GPIO图如下：
 
-![](http://blog.yfgeek.com/content/images/2016/08/GPIO.png)
+![](images/2.png)
 ## 2K 电阻如何连接到电路
 简单粗暴的方法就是把电阻两头连接到两个子-母杜邦线上，然后用绝缘胶布缠上，非常方便美观。
 
 ## LCD1602 接线方案
 
 LCD 与 树莓派相连 方案图，2K电阻是我自行设计，如果有电位器最好放置电位器：
-![](http://blog.yfgeek.com/content/images/2016/08/LCD1602--.jpg)
+![](images/3.jpg)
 
 树莓派的USB端口朝下，电源线位置朝上方向摆放。
 右端一共有40个引脚，每个引脚的PIN位置如上。
@@ -77,7 +89,7 @@ K，液晶屏背光-，接地，RPi PIN 39
 * 肯定没有爆炸
 * 会出现如下图的效果，证明你已经接线成功了
 
-![](http://blog.yfgeek.com/content/images/2016/08/1.jpg)
+![](images/4.jpg)
 
 ## DHT11 接线方案
 接线简单，主要是把数据传输到GPIO26上
@@ -105,7 +117,7 @@ GND,接地,PIN 09
 其中DATA和VCC之间用10k电阻相连
 
 ```
-![](http://codemany.com/uploads/rpi-dht22.png)
+![](images/5.png)
 
 # 依赖
 * Adafruit_DHT
@@ -137,6 +149,6 @@ python LCD.py
 ```
 # 结果
 
-![](http://blog.yfgeek.com/content/images/github/1version.jpg)
+![](images/1.jpg)
 
-![](http://blog.yfgeek.com/content/images/github/1lcd.jpg)
+![](images/6.jpg)
