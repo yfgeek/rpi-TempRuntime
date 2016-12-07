@@ -37,8 +37,8 @@ lcd_rows    = 2
 
 # Initialize the LCD using the pins above.
 lcd = LCD.Adafruit_CharLCD(lcd_rs, lcd_en, lcd_d4, lcd_d5, lcd_d6, lcd_d7,lcd_columns, lcd_rows, lcd_backlight)
+timecount = 0
 while True:
-    timecount = 0
     sensor = Adafruit_DHT.DHT22
     humidity, temperature = Adafruit_DHT.read_retry(sensor, 26)
     if humidity is not None and temperature is not None:
@@ -49,6 +49,8 @@ while True:
         jsonWrite(i,todaytime,"min")
         lcd.message(msg)
         print(msg)
+    else:
+        print('bad request,retrying...')
     if(timecount >=60):
         timecount = 0
         jsonWrite(i,todaytime,"hour")
