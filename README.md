@@ -3,7 +3,7 @@
 
 ![](images/1.jpg)
 # Demo
-http://pi.yfgeek.com:808/web
+http://3fa79da9.ngrok.io/web/index.html
 
 # 架构
 
