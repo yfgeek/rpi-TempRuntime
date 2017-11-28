@@ -37,6 +37,7 @@ lcd_rows    = 2
 
 # Initialize the LCD using the pins above.
 lcd = LCD.Adafruit_CharLCD(lcd_rs, lcd_en, lcd_d4, lcd_d5, lcd_d6, lcd_d7,lcd_columns, lcd_rows, lcd_backlight)
+timecount = 0
 while True:
     sensor = Adafruit_DHT.DHT11
     humidity, temperature = Adafruit_DHT.read_retry(sensor, 26)

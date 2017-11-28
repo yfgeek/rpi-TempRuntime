@@ -20,7 +20,7 @@ def jsonWrite(data,tdate,name):
       json.dump(data,file)
       file.write("]")
       file.close()
-
+timecount = 0
 while True:
     sensor = Adafruit_DHT.DHT11
     humidity, temperature = Adafruit_DHT.read_retry(sensor, 26)
