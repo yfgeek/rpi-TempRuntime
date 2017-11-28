@@ -54,7 +54,7 @@ VO，液晶对比度调节，接1K 电阻，另一端相连接地，PIN 9
 
 RS，寄存器选择，接GPIO 14，RPi PIN 8
 
-RW，读写选择，接地，表示写模式，PRi PIN 6
+RW，读写选择，接地，表示写模式，PRi PIN 30
 
 E，使能信号，接GPIO 15，RPi PIN 10
 
@@ -140,12 +140,12 @@ sudo python setup.py install
 # 安装
 ```bash
 cd /var/www/html
-git clone  https://github.com/yfgeek/rpi-TempRuntime.git
+git clone https://github.com/yfgeek/rpi-TempRuntime.git
 ```
 # 运行
 ```bash
 cd /var/www/html/rpi-TempRuntime
-python LCD.py
+python DHT11.py
 ```
 # 结果
 
