@@ -11,9 +11,6 @@ function showLocale(objD)
     str = yy + "-" + MM + "-" + dd;
     return(str);
 }
-function removewucha(){
-
-}
 function createchart(pathfile,dataindex){
         $.getJSON(pathfile, function (rawData) {
         var timedata = [];
